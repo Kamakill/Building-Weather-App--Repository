@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images">
+        <!--CSS Stylesheet-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+        <!--Font Awesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css">
+        <!--Google Font-->
+
+    <title>European Weather App</title>
+</head>
+<body>
+    <h1 class="section-heading">KAMAKILL</h1>
+    <h2 class="section-subheading">European Weather Forecast</h2>
+    <p>
+        <code class="copyright-text">
+            <a href="http://www.7timer.info/doc.php?lang=en" target="_blank" data-toggle="tooltip" data-placement="Top" title="" onclick="javascript:toolTipReset()" data-original-title="Tap to visit 7Timer!"><span class="keyword-magnet">7Timer!</span></a>
+        </code>
+    </p>
+    <div class="section-description">
+        <p class="section-subheading"></p>
+        <form id="query-form">
+            <select id="citySelected" name="citySelected" onclick="fetchWeather()">
+                <option disabled="" selected="" value="">--select a city--</option>
+                <option value="{lat: 52.367, lon: 4.904}">Amsterdam, Netherlands</option>
+                <option value="{lat: 39.933, lon: 32.859}">Ankara, Turkey</option>
+                <option value="{lat: 56.134, lon: 12,945}">Åstorp, Sweden</option>
+                <option value="{lat: 37.983, lon: 23.727}">Athens, Greece</option>
+                <option value="{lat: 54.597, lon: -5.930}">Belfast, Northern Ireland</option>
+                <option value="{lat: 41.387, lon: 2.168}">Barcelona, Spain</option>
+                <option value="{lat: 52.520, lon: 13.405}">Berlin, Germany</option>
+                <option value="{lat: 46.948, lon: 7.447}">Bern, Switzerland</option>
+                <option value="{lat: 43.263, lon: -2.935}">Bilbao, Spain</option>
+                <option value="{lat: 50.847, lon: 4.357}">Brussels,Belgium</option>
+                <option value="{lat: 47.497, lon: 19.040}">Bucharest,Romania</option>
+                <option value="{lat: 59.329, lon: 18.068}">Budapest,Hungary</option>
+                <option value="{lat: 51.483, lon: -3.168}">Cardiff,Wales</option>
+                <option value="{lat: 50.937, lon: 6.96}">Cologne,Germany</option>
+                <option value="{lat: 55.676, lon: 12.568}">Copenhagen,Denmark</option>
+                <option value="{lat: 51.898, lon: -8.475}">Cork,Ireland</option>
+                <option value="{lat: 53.349, lon: -6.260}">Dublin,Ireland</option>
+                <option value="{lat: 55.953, lon: -3.188}">Edinburgh,Scotland</option>
+                <option value="{lat: 43.769, lon: 11.255}">Florence,Italy</option>
+                <option value="{lat: 50.110, lon: 8.682}">Frankfurt,Germany</option>
+                <option value="{lat: 43.254, lon: 6.637}">French Riviera,France</option>
+                <option value="{lat: 32.65,  lon: -16.908}">Funchal,Portugual</option>
+                <option value="{lat: 36.140, lon: -5.353}">Gibraltar</option>
+                <option value="{lat: 57.708, lon: 11.974}">Gothenburg,Sweden</option>
+                <option value="{lat: 53.548, lon: 9.987}">Hamburg,Germany</option>
+                <option value="{lat: 60.169, lon: 24.938}">Helsinki,Finland</option>
+                <option value="{lat: 39.020, lon: 1.482}">Ibiza,Spain</option>
+                <option value="{lat: 50.450, lon: 30.523}">Kyiv,Ukraine</option>
+                <option value="{lat: 61.115, lon: 10.466}">Lillehammer,Norway</option>
+                <option value="{lat: 38.722, lon: -9.139}">Lisbon,Portugual</option>
+                <option value="{lat: 51.507, lon: -0.127}">London,England</option>
+                <option value="{lat: 40.416, lon: -3.703}">Madrid,Spain</option>
+                <option value="{lat: 39.695, lon: -3.017}">Mallorca,Spain</option>
+                <option value="{lat: 53.480, lon: -2.242}">Manchester,England</option>
+                <option value="{lat: 43.296, lon: 5.369}">Marseille,France</option>
+                <option value="{lat: 27.760, lon: -15.586}">Maspalomas,Spain</option>
+                <option value="{lat: 45.464, lon: 9.190}">Milan,Italy</option>
+                <option value="{lat: 48.135, lon: 11.582}">Munich,Germany</option>
+                <option value="{lat: 40.851, lon: 14.268}">Naples,Italy</option>
+                <option value="{lat: 43.034, lon: -2.417}">Oñati,Spain</option>
+                <option value="{lat: 59.913, lon: 10.752}">Oslo,Norway</option>
+                <option value="{lat: 48.856, lon: 2.352}">Paris,France</option>
+                <option value="{lat: 50.075, lon: 14.437}">Prague,Czech Republic</option>
+                <option value="{lat: 64.146, lon: -21.942}">Reykjavík,Iceland</option>
+                <option value="{lat: 56.879, lon: 24.603}">Riga,Latvia</option>
+                <option value="{lat: 41.902, lon: 12.496}">Rome,Italy</option>
+                <option value="{lat: 39.453, lon: -31.127}">Santa Cruz das Flores,Portugual</option>
+                <option value="{lat: 28.463, lon: -16.251}">Santa Cruz de Tenerife,Spain</option>
+                <option value="{lat: 57.273, lon: -6.215}">Skye,Scotland</option>
+                <option value="{lat: 42.697, lon: 23.321}">Sofia,Bulgaria</option>
+                <option value="{lat: 59.329, lon: 18.068}">Stockholm,Sweden</option>
+                <option value="{lat: 59.437, lon: 24.753}">Tallinn,Estonia</option>
+                <option value="{lat: 18.208, lon: 16.373}">Vienna,Austria</option>
+                <option value="{lat: 52.229, lon: 21.012}">Warsaw,Poland</option>
+                <option value="{lat: 53.961, lon: -1.07}">York,England</option>
+                <option value="{lat: 47.376, lon: 8.541}">Zurich,Switzerland</option>
+            </select>
+        </form>
+        <p></p>
+        <div>
+            <p>Using <span id="temperature-unit">Celcius</span>
+                 . 
+             <a id="temperature-toggle" href="javascript:toggleTemperatureUnit()">Switch to °F</a>
+            </p>
+        </div>
+        <div id="get-results-heading" class="section-subheading">
+            <img class="small-animation" src="images/stopwatch.gif" alt="stopwatch">
+        </div>
+        <div id="results" class="results-div">
+            <div class="col bm-2"> 
+                <div class="card h-100">
+                    <p class="weather-date">Monday</p>
+                    <p class="weather-temperatures">Low: <span class="celcius"> °C</span><span class="fahrenheit"> °F</span></p>
+                    <div class="weather-icon-div">
+                        <img src="images\pcloudy.png" alt="Cloudy">
+                    </div>
+                    <p class="weather-description">Cloudy</p>
+                    <p class="weather-temperatures">High: <span class="celcius"> °C</span><span class="fahrenheit"> °F</span></p>
+                </div>
+            </div>
+            <div class="col bm-2">
+                <div class="card h-100">
+                    <p class="weather-date">Tuesday</p>
+                    <p class="weather-temperatures">Low: <span class="celcius"> °C</span><span class="fahrenheit"> °F</span></p>
+                    <div class="weather-icon-div">
+                        <img src="images\clear.png" alt="Sunny">
+                    </div>
+                    <p class="weather-description">Sunny</p>
+                    <p class="weather-temperatures">High: <span class="celcius"> °C</span><span class="fahrenheit"> °F</span></p>
+                </div>
+            </div>
+            <div class="col bm-2">
+                <div class="card h-100">
+                    <p class="weather-date">Wednesday</p>
+                    <p class="weather-temperatures">Low: <span class="celcius"> °C</span><span class="fahrenheit"> °F</span></p>
+                    <div class="weather-icon-div">
+                        <img src="images\lightrain.png" alt="Light Rain">
+                    </div>
+                    <p class="weather-description">Light Rain</p>
+                    <p class="weather-temperatures">High: <span class="celcius"> °C</span><span class="fahrenheit"> °F</span></p>
+                </div>
+            </div>
+            <div class="col bm-2">
+                <div class="card h-100">
+                    <p class="weather-date">Thursday</p>
+                    <p class="weather-temperatures">Low: <span class="celcius"> °C</span><span class="fahrenheit"> °F</span></p>
+                    <div class="weather-icon-div">
+                        <img src="images\windy.png" alt="Windy">
+                    </div>
+                    <p class="weather-description">Windy</p>
+                    <p class="weather-temperatures">High: <span class="celcius"> °C</span><span class="fahrenheit"> °F</span></p>
+                </div>
+            </div>
+            <div class="col bm-2">
+                <div class="card h-100">
+                    <p class="weather-date">Friday</p>
+                    <p class="weather-temperatures">Low: <span class="celcius"> °C</span><span class="fahrenheit"> °F</span></p>
+                    <div class="weather-icon-div">
+                        <img src="images\fog.png" alt="Fog">
+                    </div>
+                    <p class="weather-description">Fog</p>
+                    <p class="weather-temperatures">High: <span class="celcius"> °C</span><span class="fahrenheit"> °F</span></p>
+                </div>
+            </div>
+            <div class="col bm-2">
+                <div class="card h-100">
+                    <p class="weather-date">Saturday</p>
+                    <p class="weather-temperatures">Low: <span class="celcius"> °C</span><span class="fahrenheit"> °F</span></p>
+                    <div class="weather-icon-div">
+                        <img src="images\ishower.png" alt="I-Shower">
+                    </div>
+                    <p class="weather-description">iShower</p>
+                    <p class="weather-temperatures">High: <span class="celcius"> °C</span><span class="fahrenheit"> °F</span></p>
+                </div>
+            </div>
+            <div class="col bm-2">
+                <div class="card h-100">
+                    <p class="weather-date">Sunday</p>
+                    <p class="weather-temperatures">Low: <span class="celcius"> °C</span><span class="fahrenheit"> °F</span></p>
+                    <div class="weather-icon-div">
+                        <img src="images\humid.png" alt="Humid">
+                    </div>
+                    <p class="weather-description">Humid</p>
+                    <p class="weather-temperatures">High: <span class="celcius"> °C</span><span class="fahrenheit"> °F</span></p>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <code class="copyright-text">@copyright 2023 Orbit</code>
+        </footer>
+        <!--JQuery Scripts-->
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+        <!--Bootstraps Scripts-->
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+        <!--my code-->
+        <script src="script.js"></script>
+    </div>  
+</body>
+</html>
